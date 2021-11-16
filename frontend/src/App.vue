@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="bg-gray-900" id="app">
+    <header-top 
+    :is-connected="isConnected"
+    ></header-top>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState } from 'vuex';
+import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'header-top': Header
+  },
+  mounted() {
+    this.check();
+  },
+  methods: {
+    check() {
+      if (this.user.id == 0 &&
+      this.$router.currentRoute.path != '/') {
+      this.$router.push('/');
+      }
+    }
+  },
+  computed: {
+    ...mapState(['user']),
+
+    isConnected() {
+      return (this.user.id > 0);
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
