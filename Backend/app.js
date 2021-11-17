@@ -1,68 +1,34 @@
 const express = require("express");
-const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const path = require('path'); 
+const cors = require('cors');
+const helmet = require('helmet');
 
-// connection to mysql database 
-const db = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : 'MySQL2021',
-    database : 'groupomania'
-});
-
-
-// connect db
-
-db.connect((err)=> {
-    if(err){
-        throw err;
-    }
-    console.log('MySql Connected...');
-});
+// importation des routes
+const messageRoutes = require("./routes/messages");
+const commentRoutes = require("./routes/comments");
+const userRoutes = require("./routes/user"); 
 
 const app = express();
 
-// create DB
-app.get('/createdb', (req, res)=> {
-    let sql  = 'CREATE DATABASE groupomania';
-    db.query(sql, (err, result)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('database created...');
-    });
-});
-
-// create table
-app.get('/createpoststable', (req, res)=>{
-    let sql = 'CREATE TABLE posts(id int AUTO_INCREMENT, title VARCHAR(255), body VARCHAR(255), PRIMARY KEY(id))';
-    db.query(sql, (err, res)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('Posts table created...');
-    });
-});
-
-// Insert a post
-app.get('/addpost', (req, res)=>{
-    let post = {title: 'post one', body:'this is post one'};
-    let sql ='INSERT INTO posts SET ?';
-    let query = db.query(sql, post, (err, result)=>{
-        if(err) throw err;
-        console.log(result);
-        res.send('post one added...');
-    });
-});
-
-// selectionner 
-app.get('/getposts', (req, res)=>{
-    let sql = 'SELECT * FROM posts';
-    let query = db.query(sql, (err, results)=>{
-        if(err) throw err;
-        console.log(results);
-        res.send(' posts selectionnés');
-    });
+// CORS : traitement des erreurs cross origins (middleware général, ajout des headers)
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();                                                               
 });
 
 
-app.listen('3000', ()=> {
-    console.log('server started on port 3000')
-});
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
+app.use(helmet()); 
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+app.use("/api/messages", messageRoutes);
+app.use("/api/comments", commentRoutes); 
+app.use("/api/auth", userRoutes);  
+
+module.exports = app;  
