@@ -1,15 +1,15 @@
 <template>
   <div class="bg-gray-900" id="app">
-    <header-top 
-    :is-connected="isConnected"
-    ></header-top>
+    <header-top :is-connected="isConnected"></header-top>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from 'vuex'
 import Header from './components/Header'
+import Particles from 'particles.vue'
+Vue.use(Particles)
 
 export default {
   name: 'App',
@@ -17,13 +17,12 @@ export default {
     'header-top': Header
   },
   mounted() {
-    this.check();
+    this.check()
   },
   methods: {
     check() {
-      if (this.user.id == 0 &&
-      this.$router.currentRoute.path != '/') {
-      this.$router.push('/');
+      if (this.user.id == 0 && this.$router.currentRoute.path != '/') {
+        this.$router.push('/')
       }
     }
   },
@@ -31,7 +30,7 @@ export default {
     ...mapState(['user']),
 
     isConnected() {
-      return (this.user.id > 0);
+      return this.user.id > 0
     }
   }
 }

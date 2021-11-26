@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Groupomania, Groupo'Link, réseau social interne">
+    <meta name="keywords" content="Groupomania, Groupomania-network, réseau social interne">
     <meta name="description" content="Projet 7 - Parcours Développeur.se Web Fullstack Openclassrooms. Groupo'Link est une application de réseau social d'entreprise fictive nommée Groupomania.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -11,10 +11,13 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
+  <body id="particles-js">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <script src="../paricles/particles.js"></script>
+    <script src="../paricles/app.js"></script>
+    <script src="../paricles/particles.min.js"></script>
   </body>
 </html>

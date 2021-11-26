@@ -25,7 +25,7 @@
                   Pseudo :
                 </label>
                 <input
-                  class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+                  class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
                   id="text"
                   type="text"
                   placeholder="Mon pseudo"
@@ -41,7 +41,7 @@
                   Adresse email :
                 </label>
                 <input
-                  class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+                  class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
                   id="email"
                   type="email"
                   placeholder="xxx@yyy.zzz"
@@ -58,7 +58,7 @@
                     Mot de passe :
                   </label>
                   <input
-                    class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+                    class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
                     id="password"
                     type="password"
                     placeholder="******************"
@@ -74,7 +74,7 @@
                     Confirmez votre mot de passe
                   </label>
                   <input
-                    class="text-sm sm:text-base placeholder-gray-700 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+                    class="text-sm sm:text-base placeholder-gray-700 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
                     id="c_password"
                     type="password"
                     placeholder="******************"
@@ -87,7 +87,7 @@
                   @click.prevent="signUp"
                   type="button"
                   aria-label="Cliquer sur s'incrire"
-                  class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-700 hover:bg-blue-900 rounded py-2 w-full transition duration-150 ease-in"
+                  class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-900 rounded py-2 w-full transition duration-150 ease-in"
                 >
                   <span class="mr-2 uppercase">S'inscrire</span>
                   <span>
@@ -110,7 +110,7 @@
               <router-link to="/">
                 <div class="text-center">
                   <a
-                    class="inline-block text-sm text-blue-700 align-baseline hover:text-blue-700"
+                    class="inline-block text-sm text-red-700 align-baseline hover:text-red-700"
                     href="./index.html"
                   >
                     Déjà inscrit ? Connectez-vous

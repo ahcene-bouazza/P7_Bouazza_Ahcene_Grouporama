@@ -1,5 +1,5 @@
 const db = require("../database/config");
-const Utils = require('../dateTime/dateTime');
+
 
 // User model creation
 const User = function(user) {

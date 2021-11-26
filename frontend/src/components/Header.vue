@@ -1,5 +1,5 @@
 <template>
-  <header class="container mx-auto border-b-2 border-blue-700 bg-gray-900">
+  <header class="container mx-auto border-b-2 border-red-700 bg-gray-900">
     <nav class="flex items-center justify-between flex-wrap p-6">
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <a href="http://localhost:8080/welcome">
@@ -13,7 +13,7 @@
       </div>
       <div class="block lg:hidden">
         <button
-          class="flex items-center px-2 py-2  rounded text-teal-lighter bg-blue-700 border-teal-light hover:text-white hover:border-white"
+          class="flex items-center px-2 py-2  rounded text-teal-lighter bg-red-700 border-teal-light hover:text-white hover:border-white"
           aria-label="Cliquer sur menu"
         >
           <svg
@@ -32,16 +32,16 @@
             to="/feed"
             v-if="isConnected"
             href="http://localhost:8080/feed"
-            class="block mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-green-400 hover:text-white mr-4"
+            class="block mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-red-400 hover:text-white mr-4"
             aria-label="Accéder aux articles"
           >
-            Groupo'Link
+            Network
           </router-link>
           <router-link
             to="/profile/:id"
             v-if="isConnected"
             href="http://localhost:8080/profile/:id"
-            class="block mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-green-400"
+            class="block mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-red-400"
             aria-label="Accéder à mon compte"
           >
             Mon compte
@@ -50,7 +50,7 @@
             to="/Users"
             v-if="isConnected"
             href="http://localhost:8080/Users"
-            class="block ml-4 mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-green-400"
+            class="block ml-4 mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-red-400"
             aria-label="Accéder à la page membres"
           >
             Membres
@@ -61,7 +61,7 @@
             v-if="isConnected"
             @click="logout()"
             href="#"
-            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:text-green-400 mt-4 lg:mt-0"
+            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:text-red-400 mt-4 lg:mt-0"
             aria-label="Se déconnecter"
           >
             Se déconnecter

@@ -39,7 +39,7 @@
               id="email"
               type="email"
               name="email"
-              class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+              class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
               placeholder="xxx@yyy.zzz"
             />
           </div>
@@ -76,7 +76,7 @@
               id="password"
               :type="show ? 'text' : 'password'"
               name="password"
-              class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-700"
+              class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-red-700"
               placeholder="******************"
             />
           </div>
@@ -98,7 +98,7 @@
             @click.prevent="login"
             type="submit"
             aria-label="Se connecter"
-            class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-700 hover:bg-blue-900 rounded py-2 w-full transition duration-150 ease-in"
+            class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-900 rounded py-2 w-full transition duration-150 ease-in"
           >
             <span class="mr-2 uppercase">Se connecter</span>
             <span>
@@ -124,7 +124,7 @@
       <div class="flex justify-center items-center mt-6">
         <div
           aria-label="Cliquer sur inscription"
-          class="inline-flex items-center text-blue-700 hover:text-blue-900 text-xs text-center"
+          class="inline-flex items-center text-red-700 hover:text-red-900 text-xs text-center"
         >
           <span>
             <svg

@@ -35,6 +35,10 @@ exports.login = (req, res, next) => {
     if (err) {
       return res.status(400).json({ message: 'Utilisateur non trouvé' });
     }
+    
+    if (result == undefined) {
+    return res.status(400).json({ message: 'Utilisateur non trouvé' });
+    };
 
     if (!result.isActive) {
       return res.status(400).json({ message: 'Utlisateur trouvé mais désactivé' });
@@ -84,7 +88,8 @@ exports.getAllUsers = (req, res, next) => {
 
 // Réupérer un seul user
 exports.getOneUser = (req, res, next) => {
-  let id = req.body.userId
+  let id = req.params.id;   // modifié erreur : req.body.userId;
+  console.log(id);
   User.findOneById(id, (err, result) => {
     if (err) {
       return res.status(404).json({ message: 'Utilisateur non trouvé' });

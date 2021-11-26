@@ -1,8 +1,11 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center bg-gray-900">
+  <div
+    class="min-h-screen flex flex-col items-center justify-center bg-gray-900"
+    id="particles-js"
+  >
     <h1 class="mt-12 text-2xl text-center text-white">
       Bienvenue
-      <span class="text-green-500 uppercase">{{ user.pseudo }}</span> !
+      <span class="text-red-500 uppercase">{{ user.pseudo }}</span> !
     </h1>
     <newMessage @added="add"></newMessage>
     <div v-for="message in messages" :key="message.id">
@@ -12,16 +15,16 @@
 </template>
 
 <script>
-import http from '../http';
-import NewMessage from '@/components/NewMessage.vue';
-import Message from '@/components/Message.vue';
-import {mapState} from 'vuex';
+import http from '../http'
+import NewMessage from '@/components/NewMessage.vue'
+import Message from '@/components/Message.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'feed',
   created() {
-  this.token = localStorage.getItem('token');
-  this.pseudo = localStorage.getItem('pseudo');
+    this.token = localStorage.getItem('token')
+    this.pseudo = localStorage.getItem('pseudo')
   },
   components: {
     newMessage: NewMessage,
@@ -33,8 +36,8 @@ export default {
       messages: []
     }
   },
-    computed: {
-    ...mapState(['user']),
+  computed: {
+    ...mapState(['user'])
   },
   mounted() {
     this.refresh()
@@ -43,42 +46,50 @@ export default {
     add(message) {
       this.refresh()
     },
-    updateReactionsInMessages(tabReaction){
-      for(let i in this.messages){
-
-        this.$set(this.messages[i], 'nbReaction_1', 0);
-        this.$set(this.messages[i], 'nbReaction_2', 0);
+    updateReactionsInMessages(tabReaction) {
+      for (let i in this.messages) {
+        this.$set(this.messages[i], 'nbReaction_1', 0)
+        this.$set(this.messages[i], 'nbReaction_2', 0)
         // Si d'autres réactions
 
-    // Pour chaque message on regarde si il y a des réactions
-      for(let j in tabReaction){
-        if(tabReaction[j].message_id == this.messages[i].id){
-          switch(tabReaction[j].reaction_id){
-            case 1 : this.messages[i].nbReaction_1 = tabReaction[j].sumReaction; break;
-            case 2 : this.messages[i].nbReaction_2 = tabReaction[j].sumReaction; break;
-            // Si d'autres réactions
+        // Pour chaque message on regarde si il y a des réactions
+        for (let j in tabReaction) {
+          if (tabReaction[j].message_id == this.messages[i].id) {
+            switch (tabReaction[j].reaction_id) {
+              case 1:
+                this.messages[i].nbReaction_1 = tabReaction[j].sumReaction
+                break
+              case 2:
+                this.messages[i].nbReaction_2 = tabReaction[j].sumReaction
+                break
+              // Si d'autres réactions
             }
           }
         }
       }
     },
     refresh() {
-      http
-      .get('/messages/')
-      .then(res => {
-        let context = this;
-        this.messages = res.data;
-        http
-        .get('/messages/reactions')
-        .then(res => {
-          context.updateReactionsInMessages(res.data);
+      http.get('/messages/').then(res => {
+        let context = this
+        this.messages = res.data
+        http.get('/messages/reactions').then(res => {
+          context.updateReactionsInMessages(res.data)
         })
       })
     },
     newComment(comment) {
-      let message = this.messages.filter((message) => message.id === comment.message_id)[0];
+      let message = this.messages.filter(
+        message => message.id === comment.message_id
+      )[0]
       message.tabComments.push(comment)
     }
   }
 }
 </script>
+
+<style>
+#particles-js {
+  width: 100%;
+  height: 100%;
+}
+</style>
