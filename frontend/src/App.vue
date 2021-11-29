@@ -8,8 +8,6 @@
 <script>
 import { mapState } from 'vuex'
 import Header from './components/Header'
-import Particles from 'particles.vue'
-Vue.use(Particles)
 
 export default {
   name: 'App',

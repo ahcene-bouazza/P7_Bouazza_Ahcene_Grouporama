@@ -1,7 +1,6 @@
 <template>
   <div
     class="min-h-screen flex flex-col items-center justify-center bg-gray-900"
-    id="particles-js"
   >
     <h1 class="mt-12 text-2xl text-center text-white">
       Bienvenue
@@ -86,10 +85,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#particles-js {
-  width: 100%;
-  height: 100%;
-}
-</style>
