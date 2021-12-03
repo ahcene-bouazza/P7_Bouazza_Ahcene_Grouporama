@@ -11,7 +11,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "node-sass": "^6.0.1",
-    "particles.vue": "^2.20.4",
+    "particles.vue": "^2.20.5",
     "tsparticles": "^1.37.4",
     "vue": "2",
     "vue-moment": "^4.1.0",

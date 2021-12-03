@@ -5,7 +5,7 @@
         <div class="w-full xl:w-3/4 lg:w-11/12 flex">
           <div
             class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
-            style="background-image: url('https://images.unsplash.com/photo-1605106925746-22f723ca945b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80')"
+            style="background-image: url('https://images.unsplash.com/photo-1533918482865-7c58ea707012?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1189&q=80')"
           ></div>
           <div
             class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none"
@@ -80,6 +80,9 @@
                     placeholder="******************"
                     v-model="confirm_password"
                   />
+                  <p class="text-xs italic text-green-700">
+                    *min 6 char + maj + chiffre
+                  </p>
                 </div>
               </div>
               <div class="mb-6 text-center">
@@ -157,7 +160,9 @@ export default {
         return false
       }
       if (this.password != this.confirm_password) {
-        alert('Les mots de passe doivent être identiques')
+        alert(
+          'Les mots de passe doivent être identiques et respecter la mise en forme*'
+        )
         return false
       }
       const payload = {

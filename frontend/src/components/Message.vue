@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-auto px-4 py-8 max-w-xl my-2">
-    <div class="bg-white rounded-lg mb-6 relative tracking-wide">
+  <div class="mx-auto px-4 py-8 max-w-xl my-2" style="min-width:300px;">
+    <div class="bg-white rounded-lg mb-6 relative tracking-wide ">
        <a 
         v-if="this.user.isAdmin" 
         class="text-red-600 absolute top-2 right-3 cursor-pointer" 

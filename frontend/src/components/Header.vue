@@ -11,7 +11,7 @@
           />
         </a>
       </div>
-      <div class="block lg:hidden">
+      <!--<div class="block lg:hidden">
         <button
           class="flex items-center px-2 py-2  rounded text-teal-lighter bg-red-700 border-teal-light hover:text-white hover:border-white"
           aria-label="Cliquer sur menu"
@@ -25,8 +25,8 @@
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </button>
-      </div>
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      </div>-->
+      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
         <div class="text-sm lg:flex-grow">
           <router-link
             to="/feed"
@@ -50,7 +50,7 @@
             to="/Users"
             v-if="isConnected"
             href="http://localhost:8080/Users"
-            class="block ml-4 mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-red-400"
+            class="block sm:ml-0 lg:ml-4 mt-4 lg:inline-block lg:mt-0 text-lg text-teal-lighter text-white hover:text-red-400"
             aria-label="Accéder à la page membres"
           >
             Membres

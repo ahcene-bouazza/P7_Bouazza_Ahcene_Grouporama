@@ -1,0 +1,10 @@
+Projet Groupomania : réseau social d'entreprise
+
+Lancement du projet :
+- Backend :
+    - npm install
+    - nodemon run serve
+- Frontend : 
+    - npm install
+    - npm run serve
+ 

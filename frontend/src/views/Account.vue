@@ -20,9 +20,9 @@
         <div class="col-span-12 w-full h-full pb-12 md:col-span-10">
           <div class="px-4 pt-4">
             <form class="flex flex-col space-y-8">
-              <div class="flex justify-center">
+              <div class="flex justify-center ">
                 <input
-                  class="mt-2"
+                  class="mt-2 text-white"
                   type="file"
                   accept="image/*"
                   @change="uploadImage($event)"

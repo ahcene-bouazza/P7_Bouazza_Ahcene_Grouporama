@@ -1,12 +1,12 @@
 <template>
   <div
-    class="min-h-screen flex flex-col items-center justify-center bg-gray-900"
+    class="min-h-screen flex flex-col items-center justify-center bg-gray-900 feed"
   >
     <h1 class="mt-12 text-2xl text-center text-white">
       Bienvenue
       <span class="text-red-500 uppercase">{{ user.pseudo }}</span> !
     </h1>
-    <newMessage @added="add"></newMessage>
+    <newMessage class="newMessage" @added="add"></newMessage>
     <div v-for="message in messages" :key="message.id">
       <message :item="message" @added="newComment" @refresh="refresh"></message>
     </div>
@@ -85,3 +85,10 @@ export default {
   }
 }
 </script>
+<!-- 
+<style>
+.feed {
+  z-index: 1;
+}
+</style>
+-->
