@@ -19,8 +19,11 @@ const limiter = rateLimit({
 // Importation middleware de vérification du mot de passe
 const verifyPassword = require("../middleware/verifyPassword");
 
+// importation middleware vérification email
+const verifyEmail = require("../middleware/emailValidator");
+
 // Route POST pour l'inscription d'un utilisateur
-router.post("/signup", verifyPassword, userController.signup);
+router.post("/signup", verifyEmail, verifyPassword, userController.signup);
 
 // Route POST pour la connexion d'un utilisateur
 router.post("/login", limiter, userController.login);
