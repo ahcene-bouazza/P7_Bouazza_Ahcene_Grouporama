@@ -5,7 +5,7 @@
   >
     <h1 class="mt-12 text-2xl text-center text-white">
       Découvrez les membres de
-      <span class="uppercase text-red-500">Groupo'link</span>
+      <span class="uppercase text-red-500">Network</span>
     </h1>
     <div
       v-for="user of users"

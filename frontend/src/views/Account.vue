@@ -67,6 +67,15 @@
               >
                 <span class="mr-2 uppercase">Modifier mon pseudo</span>
               </button>
+
+              <a
+                @click="deactivateOneUser"
+                href="#"
+                aria-label="Supprimer mon compte"
+                class="flex mt-5 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-900 rounded py-2 w-full transition duration-150 ease-in"
+              >
+                Supprimer mon compte
+              </a>
             </form>
           </div>
         </div>
@@ -84,6 +93,13 @@ import { mapMutations } from 'vuex'
 export default {
   components: { Avatar },
   name: 'Account',
+
+  props: {
+    member: {
+      type: Object
+    }
+  },
+
   data() {
     return {
       newPseudo: '',
@@ -129,6 +145,15 @@ export default {
     },
     uploadImage(e) {
       this.file = e.target.files[0]
+    },
+
+    deactivateOneUser() {
+      http
+        .delete('/auth/users/' + this.member.id)
+        .then(res => {
+          this.$emit('refresh')
+        })
+        .catch(() => console.log('Impossible de suprimer le user'))
     }
   }
 }

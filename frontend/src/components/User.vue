@@ -12,7 +12,7 @@
           {{ role }}
         </div>
         <a
-          v-if="this.user.isAdmin"
+          v-if="this.user.isAdmin || this.user.id == this.member.id"
           @click="deactivateOneUser"
           href="#"
           class="text-red-700 hover:text-red-700"

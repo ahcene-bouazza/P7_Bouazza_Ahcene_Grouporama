@@ -99,7 +99,7 @@ exports.getOneUser = (req, res, next) => {
   })
 };
 
-// Mofifier un pseudo
+// Modifier un pseudo
 exports.updateOneUserPseudo = (req, res, next) => {
   let myToken = Utils.getReqToken(req);
   // check pas d'usurpation de user_id
@@ -120,7 +120,7 @@ exports.updateOneUserPseudo = (req, res, next) => {
   })
 };
 
-// Mofifier une profilPic
+// Modifier une profilPic
 exports.updateOneUserFile = (req, res, next) => {
   let myToken = Utils.getReqToken(req);
   // check pas d'usurpation de user_id
