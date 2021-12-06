@@ -74,7 +74,7 @@
                 aria-label="Supprimer mon compte"
                 class="flex mt-5 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-900 rounded py-2 w-full transition duration-150 ease-in"
               >
-                Supprimer mon compte
+                vous pouvez supprimer votre compte depuis la page membres
               </a>
             </form>
           </div>

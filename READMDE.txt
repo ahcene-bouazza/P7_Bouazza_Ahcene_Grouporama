@@ -1,7 +1,9 @@
 Projet Groupomania : réseau social d'entreprise
 
 Lancement du projet :
+
 - Backend :
+    - Rename ".env.exemple" in the backend to ".env" and put the credentials of your database inside
     - npm install
     - nodemon run serve
 - Frontend : 
