@@ -69,12 +69,13 @@
               </button>
 
               <a
+                v-if="!this.user.isAdmin"
                 @click="deactivateOneUser"
                 href="#"
                 aria-label="Supprimer mon compte"
                 class="flex mt-5 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-red-700 hover:bg-red-900 rounded py-2 w-full transition duration-150 ease-in"
               >
-                vous pouvez supprimer votre compte depuis la page membres
+                Supprimer votre compte
               </a>
             </form>
           </div>
@@ -149,9 +150,12 @@ export default {
 
     deactivateOneUser() {
       http
-        .delete('/auth/users/' + this.member.id)
+        .delete('/auth/users/' + this.user.id)
         .then(res => {
-          this.$emit('refresh')
+          alert('compte supprimé!')
+          localStorage.clear()
+          window.location.href = '/'
+          /*this.$emit('refresh')*/
         })
         .catch(() => console.log('Impossible de suprimer le user'))
     }
